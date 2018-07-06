@@ -1,6 +1,6 @@
 {
   "name": "angularjs-adblock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/detect-adblock.js",
   "author": "Anılhan Hasceviz <ahscvz@gmail.com>",
   "description": "Adblock Detect for angular.js",
