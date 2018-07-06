@@ -5,35 +5,37 @@
             this.imagePath = 'https://pbs.twimg.com/profile_images/809117081274814464/az-86S-3_400x400.jpg';
             this.title = 'Adblock Detected!';
             this.description = 'Oops! Your browser is using the Adblock Plugin. You can not access to this website with the adblock plugin. To continue website please disable adblock plugin in you browser settings.';
-            /*this.close = true;
-            this.refresh = true;*/
-
+            this.cancel = true;
+            this.refresh = true;
+            
             this.$get = ['$injector', '$document', function ($injector, $document) {
 
                 var imagePath = this.imagePath;
                 var title = this.title;
                 var description = this.description;
-                var close = this.close;
+                var cancel = this.cancel;
                 var refresh = this.refresh;
 
                 function _detect() {
                     var ad = angular.element('<ins></ins>');
+                    ad.addClass('AdSense');
                     ad.css({
                         'display': 'block',
                         'position': 'absolute',
                         'top': '-1px',
-                        'height': '-1px'
+                        'height': '1px'
                     });
                     var body = $document.find('body').eq(0);
                     body.append(ad);
-                    var isAdBlockEnabled = !ad.clientHeight;
-                    ad.remove();
+                    var isAdBlockEnabled = !ad[0].clientHeight;
                     return isAdBlockEnabled;
                 }
-                
 
                 function _template() {
                     var element = {
+                        body: function () {
+                            return $document.find('body').eq(0);
+                        },
                         div: function () {
                             return angular.element('<div></div>');
                         },
@@ -48,57 +50,58 @@
                         },
                         button: function () {
                             return angular.element('<button></button>');
-                        }
+                        }    
                     }
 
-                    var image = element.img();
-                    image.attr('src', imagePath);
+                    var image = element.img(),
+                        alertImage = element.div(),
+                        alertTitle = element.span(),
+                        alertDescription = element.p(),
+                        alertContent = element.div(),
+                        cancelButton = element.button(),
+                        refreshButton = element.button(),
+                        alertButtons = element.div(),
+                        adAlert = element.div(),
+                        body = $document.find('body').eq(0),
+                        adblock = element.div();
 
-                    var alertImage = element.div();
+                    image.attr('src', imagePath);                    
                     alertImage.addClass('alert-image');
                     alertImage.append(image);
-
-                    var alertTitle = element.span();
                     alertTitle.append(title);
-
-                    var alertDescription = element.p();
                     alertDescription.append(description);
-
-                    var alertContent = element.div();
                     alertContent.addClass('alert-content');
                     alertContent.append(alertTitle);
                     alertContent.append(alertDescription);
-
-                    var cancelButton = element.button();
                     cancelButton.append('<i class="fa fa-times"></i>');
                     cancelButton.append('Cancel');
                     cancelButton.bind('click', function($event) {
-                        console.log("Cancel clicked.");
+                        body.find(".adblock-detect").remove();
                     });
-
-                    /*
-                    cancelButton.attr("on-click", 'test()');
-
-                    var refreshButton = element.button();
                     refreshButton.append('<i class="fa fa-refresh"></i>');
-                    refreshButton.append('Refresh');
-                    */
-
-                    var alertButtons = element.div();
+                    refreshButton.addClass('refresh');
+                    refreshButton.append('I Have Dısable Adblock');
+                    refreshButton.bind('click', function($event) {
+                       location.reload(); 
+                    });
                     alertButtons.addClass('alert-buttons');
-                    //alertButtons.append(cancelButton);
-                    //alertButtons.append(refreshButton);
-
-                    var adAlert = element.div();
+                    if(cancel){
+                        alertButtons.append(cancelButton);
+                    }
+                    if(refresh){
+                        alertButtons.append(refreshButton);
+                    }
                     adAlert.addClass('ad-alert');
                     adAlert.append(alertImage);
                     adAlert.append(alertContent);
-                    //adAlert.append(alertButtons);
-
-                    var adblock = element.div();
+                     if(cancel || refresh){
+                        adAlert.append(alertButtons);
+                        adAlert.css({
+                            'height': '380px'
+                        })
+                    }
                     adblock.addClass('adblock-detect');
                     adblock.append(adAlert);
-
                     return adblock;
                 }
 
@@ -110,6 +113,7 @@
 
                 function _start() {
                     var adblock = _detect();
+                    debugger;
                     if (adblock == true) {
                         _alert();
                     }
