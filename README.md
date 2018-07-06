@@ -14,7 +14,14 @@ Detects browsers that use AdBlock and displays a warning on the screen.
 ```sh
 angular.module('myApp', ['detectAdblock'])
 ```
-4. Activate adblock and see alert.
+4. Start detect
+```sh
+angular.module('myApp', ['detectAdblock'])
+.run(function (adblock) {
+        adblock.detect();
+ });
+```
+5. Activate adblock and see alert.
 
  ![](https://preview.ibb.co/kHEO9y/Screenshot.png)
 
@@ -26,9 +33,7 @@ angular.module('myApp', ['detectAdblock'])
         adblockProvider.imagePath = 'your_alert_image';
         adblockProvider.title = 'your_alert_title';
         adblockProvider.description = 'your_alert_description';
-  }])
+  }]);
 ```
 ## License
 Licensed under the MIT license
-
-
