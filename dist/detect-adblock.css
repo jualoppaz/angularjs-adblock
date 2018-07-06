@@ -30,7 +30,7 @@
 }
 .adblock-detect .ad-alert .alert-content {
   padding: 0 30px;
-  height: 170px;
+  height: 140px;
   overflow: hidden;
 }
 .adblock-detect .ad-alert .alert-content span {
@@ -45,13 +45,18 @@
   padding: 0 30px;
 }
 .adblock-detect .ad-alert .alert-buttons button {
-  width: 100px;
+  min-width: 100px;
   height: 30px;
-  border-radius: 15px;
+  border-radius: 10px;
+  margin-right: 10px;
 }
 .adblock-detect .ad-alert .alert-buttons button:focus {
   outline: 0;
 }
 .adblock-detect .ad-alert .alert-buttons button i {
   margin-right: 5px;
+}
+.adblock-detect .ad-alert .alert-buttons .refresh {
+  background-color: #26A69A;
+  color: #fff;
 }
