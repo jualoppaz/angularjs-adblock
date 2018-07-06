@@ -1,0 +1,22 @@
+{
+  "name": "angularjs-adblock",
+  "version": "1.0.0",
+  "main": "./dist/detect-adblock.js",
+  "author": "Anılhan Hasceviz <ahscvz@gmail.com>",
+  "description": "Adblock Detect for angular.js",
+  "keywords": [
+    "adblock",
+    "angular"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "Gruntfile.js"
+  ],
+  "dependencies": {
+    "angular": ">=1.3.x",
+    "font-awesome": "^4.7.0"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/ahscvz/adblock-detect-angular"
+}

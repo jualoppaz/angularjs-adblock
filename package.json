@@ -1,0 +1,24 @@
+{
+  "name": "angularjs-adblock",
+  "version": "1.0.0",
+  "description": "Adblock Detect for angular.js",
+  "main": "./dist/detect-adblock.js",
+  "author": "Anılhan Hasceviz <ahscvz@gmail.com>",
+  "style": "dist/detect-adblock.css",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ahsccz/angularjs-adblock.git"
+  },
+  "keywords": [
+    "adblock",
+    "angularjs"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.5.0",
+    "gulp-path": "^4.0.0",
+    "gulp-strip-comments": "^2.5.2"
+  }
+}
