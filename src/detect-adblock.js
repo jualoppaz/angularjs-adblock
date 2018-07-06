@@ -69,15 +69,20 @@
                     alertContent.append(alertTitle);
                     alertContent.append(alertDescription);
 
-                    /*
                     var cancelButton = element.button();
                     cancelButton.append('<i class="fa fa-times"></i>');
                     cancelButton.append('Cancel');
+                    cancelButton.bind('click', function($event) {
+                        console.log("Cancel clicked.");
+                    });
+
+                    /*
                     cancelButton.attr("on-click", 'test()');
 
                     var refreshButton = element.button();
                     refreshButton.append('<i class="fa fa-refresh"></i>');
-                    refreshButton.append('Refresh');*/
+                    refreshButton.append('Refresh');
+                    */
 
                     var alertButtons = element.div();
                     alertButtons.addClass('alert-buttons');
