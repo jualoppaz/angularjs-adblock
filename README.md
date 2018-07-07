@@ -31,7 +31,7 @@ angular.module('myApp', ['detectAdblock'])
 
 5. Activate adblock and see alert.
 
- ![](https://preview.ibb.co/kHEO9y/Screenshot.png)
+ ![](https://preview.ibb.co/iM1mEy/Screenshot_1.png)
 
 ## Configuration
 **Customize the template:**
@@ -41,7 +41,9 @@ angular.module('myApp', ['detectAdblock'])
         adblockProvider.imagePath = 'your_alert_image';
         adblockProvider.title = 'your_alert_title';
         adblockProvider.description = 'your_alert_description';
-  }]);
+        adblockProvider.cancel = true; // Cancel button in alert
+        adblockProvider.refresh = true; // I have Dısable Adblock button in alert 
+    }]);
 ```
 ## License
 Licensed under the MIT license
