@@ -43,7 +43,8 @@ angular.module('myApp', ['detectAdblock'])
         adblockProvider.description = 'your_alert_description';
         adblockProvider.cancel = true; // Cancel button in alert
         adblockProvider.cancelText = 'Custom cancel button text';
-        adblockProvider.refresh = true; // I have Dısable Adblock button in alert 
+        adblockProvider.refresh = true; // I have Dısable Adblock button in alert
+        adblockProvider.refreshText = 'Custom refresh button text'; 
     }]);
 ```
 ## License
