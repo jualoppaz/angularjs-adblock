@@ -28,6 +28,9 @@
   height: 100px;
   margin: 20px auto;
 }
+.adblock-detect .ad-alert .alert-image img {
+  width: 100%;
+}
 .adblock-detect .ad-alert .alert-content {
   padding: 0 30px;
   height: 140px;
