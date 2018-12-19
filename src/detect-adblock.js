@@ -6,6 +6,7 @@
             this.title = 'Adblock Detected!';
             this.description = 'Oops! Your browser is using the Adblock Plugin. You can not access to this website with the adblock plugin. To continue website please disable adblock plugin in you browser settings.';
             this.cancel = true;
+            this.cancelText = 'Cancel';
             this.refresh = true;
             
             this.$get = ['$injector', '$document', function ($injector, $document) {
@@ -14,6 +15,7 @@
                 var title = this.title;
                 var description = this.description;
                 var cancel = this.cancel;
+                var cancelText = this.cancelText;
                 var refresh = this.refresh;
 
                 function _detect() {
@@ -74,8 +76,8 @@
                     alertContent.append(alertTitle);
                     alertContent.append(alertDescription);
                     cancelButton.append('<i class="fa fa-times"></i>');
-                    cancelButton.append('Cancel');
                     cancelButton.bind('click', function($event) {
+                    cancelButton.append(cancelText);
                         body.find(".adblock-detect").remove();
                     });
                     refreshButton.append('<i class="fa fa-refresh"></i>');
