@@ -10,6 +10,7 @@
   background-color: rgba(0, 0, 0, 0.9);
   top: 0;
   position: absolute;
+  z-index: 9999;
 }
 .adblock-detect .ad-alert {
   width: 400px;
