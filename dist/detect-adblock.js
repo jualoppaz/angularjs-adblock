@@ -8,8 +8,9 @@
             this.cancel = true;
             this.cancelText = 'Cancel';
             this.refresh = true;
+            this.refreshText = 'I Have Dısable Adblock';
 
-                        this.$get = ['$injector', '$document', function ($injector, $document) {
+            this.$get = ['$injector', '$document', function ($injector, $document) {
 
                 var imagePath = this.imagePath;
                 var title = this.title;
@@ -17,6 +18,7 @@
                 var cancel = this.cancel;
                 var cancelText = this.cancelText;
                 var refresh = this.refresh;
+                var refreshText = this.refreshText;
 
                 function _detect() {
                     var ad = angular.element('<ins></ins>');
@@ -76,27 +78,27 @@
                     alertContent.append(alertTitle);
                     alertContent.append(alertDescription);
                     cancelButton.append('<i class="fa fa-times"></i>');
-                    cancelButton.bind('click', function($event) {
                     cancelButton.append(cancelText);
+                    cancelButton.bind('click', function ($event) {
                         body.find(".adblock-detect").remove();
                     });
                     refreshButton.append('<i class="fa fa-refresh"></i>');
                     refreshButton.addClass('refresh');
-                    refreshButton.append('I Have Dısable Adblock');
-                    refreshButton.bind('click', function($event) {
-                       location.reload(); 
+                    refreshButton.append(refreshText);
+                    refreshButton.bind('click', function ($event) {
+                        location.reload();
                     });
                     alertButtons.addClass('alert-buttons');
-                    if(cancel){
+                    if (cancel) {
                         alertButtons.append(cancelButton);
                     }
-                    if(refresh){
+                    if (refresh) {
                         alertButtons.append(refreshButton);
                     }
                     adAlert.addClass('ad-alert');
                     adAlert.append(alertImage);
                     adAlert.append(alertContent);
-                     if(cancel || refresh){
+                    if (cancel || refresh) {
                         adAlert.append(alertButtons);
                         adAlert.css({
                             'height': '380px'
